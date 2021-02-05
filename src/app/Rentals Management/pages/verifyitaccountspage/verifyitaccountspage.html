@@ -1,0 +1,69 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <!-- <ion-buttons slot="end" expand="full" class="ion-button" (click)="openScanner()">
+      <ion-button style="color: black">
+          <img style="width: 15px;
+            height: 15px;" src="../../../../assets/icons.png" width="30px" height="30px"/>
+      </ion-button>
+    </ion-buttons> -->
+
+    <ion-title>Account</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content *ngIf="this.accountdetail.name && this.accountdetail.email" style="top: 3vh;" fullscreen>
+<ion-row>
+  <!-- <ion-col>
+
+  
+ 
+        <ion-card class="myCard">
+          <div class="myOverlay">
+        div class="card-title">{{item.title}}</div> 
+          </div>
+        </ion-card>
+    
+
+
+   
+
+  </ion-col> -->
+</ion-row>
+  <ion-row>
+    <ion-col size="3">
+      Name:
+    </ion-col>
+    <ion-col style="text-align: left;">
+      {{this.accountdetail.name}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="3">
+      Email:
+    </ion-col>
+    <ion-col style="text-align: left;">
+      {{this.accountdetail.email}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="3">
+      Mobile:
+    </ion-col>
+    <ion-col style="text-align: left;">
+      {{this.accountdetail.mobile}}
+    </ion-col>
+  </ion-row>
+
+</ion-content>
+<ion-content *ngIf="!(this.accountdetail.name && this.accountdetail.email)">
+  <p style="    text-align: center;
+  margin-top: 10vh;">
+
+    Please Sign in to see your account details.
+  </p>
+</ion-content>

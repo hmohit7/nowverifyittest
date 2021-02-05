@@ -1,0 +1,55 @@
+<ion-header *ngIf="hidebutton">
+  <ion-toolbar color="primary">
+    <ion-title style="text-transform: capitalize;">Please verify your mobile number.</ion-title>
+    <!-- <ion-title *ngIf="!hidenfc" style="    text-transform: capitalize;">NFC</ion-title> -->
+
+    <ion-buttons slot="end">
+      <ion-button color="primary" (click)="closeModal()">
+        <ion-icon style="    color: white;" slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col  size="12">
+      <ion-item lines="none">
+        <ion-label position="floating">Enter Your Mobile Number.</ion-label>
+        <ion-input type="text" maxlength="10" minlength="10" inputmode="tel" placeholder="" [(ngModel)]="usercontactNumber"> </ion-input>
+      </ion-item>
+    </ion-col>
+
+    <ion-col *ngIf="!showOTP">
+      <ion-item lines="none">
+        <ion-label position="floating">Enter OTP.</ion-label>
+        <ion-input type="text" maxlength="4" minlength="4" inputmode="tel" placeholder=" " [(ngModel)]="mobileOTP"> </ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row>
+    <ion-col style="margin-top: 5vh;
+    margin-bottom: 5vh;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;">
+      <ion-button *ngIf="showOTP" [disabled]="usercontactNumber.length < 9"  (click)="generateOTP()" class="half-button" expand="full" color="primary">Generate OTP
+        </ion-button>
+
+        <ion-button *ngIf="!showOTP" [disabled]="mobileOTP.length < 3" (click)="submitOTP()" class="half-button" expand="full" color="primary">Submit OTP
+          </ion-button>
+  
+    
+
+    </ion-col>
+  </ion-row>
+  <ion-row  class="ion-text-justify">
+    <ion-col>
+      <p style="font-size: 10px;margin-left:1vh;margin-right:1vh">
+        Note: This process of mobile verification helps us keep authentication process full proof.
+    </p>
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -4,9 +4,9 @@
     <div class="webkit-center login-page-padding">
 
       <div>
-        <ion-row class="width-80-percent margin-top-30 margin-bottom-20">
+        <ion-row class="width-80-percent">
           <ion-col class="image-align">
-            <img style="width: 50%;" src="assets/imgs/nailalogo.png" />
+            <img style="width: 100%;" src="assets/imgs/nailalogo.jpg" />
           </ion-col>
         </ion-row>
       </div>
@@ -27,19 +27,19 @@
         </ion-row>
         <ion-row class="width-80-percent">
           <div class="text-left">
-            <p class="font-14 margin-top-0">Enter your phone number to continue</p>
+            <p class="font-14 margin-top-0">Enter your email to continue</p>
           </div>
         </ion-row>
-        <ion-row class="width-80-percent text-left">
-          <ion-col size="2">
+        <ion-row style="margin-top: -5%;" class="width-80-percent text-left">
+          <!-- <ion-col size="2">
             <ion-item>
               <ion-input disabled="true" inputmode="text" [(ngModel)]="loginData.countryCode"> </ion-input>
-              <!-- <ion-icon mode="md" class="txt-warm-grey" name="arrow-dropdown"></ion-icon> -->
-            </ion-item>
-          </ion-col>
-          <ion-col size="10">
+           <ion-icon mode="md" class="txt-warm-grey" name="arrow-dropdown"></ion-icon> -->
+            <!-- </ion-item>
+          </ion-col> -->
+          <ion-col size="12">
             <ion-item>
-              <ion-input inputmode="tel" placeholder=" "
+              <ion-input inputmode="text" placeholder=" "
                 [(ngModel)]="loginData.phoneNumber"> </ion-input>
             </ion-item>
           </ion-col>
@@ -61,25 +61,25 @@
       <div [hidden]="sendotpinput">
         <ion-row class="width-80-percent">
           <div class="text-left">
-            <p class="font-14">Enter your registered phone number</p>
+            <p class="font-14">Enter your registered email</p>
           </div>
         </ion-row>
         <ion-row class="width-80-percent text-left">
-          <ion-col size="3">
+          <!-- <ion-col size="3">
             <ion-item (click)="showCountryCodeModal()">
               <ion-input inputmode="text" [(ngModel)]="loginData.countryCode"> </ion-input>
               <ion-icon mode="md" class="txt-warm-grey" name="arrow-dropdown"></ion-icon>
             </ion-item>
-          </ion-col>
-          <ion-col size="9">
+          </ion-col> -->
+          <ion-col size="12">
             <ion-item>
-              <ion-input inputmode="tel" placeholder=" " [(ngModel)]="loginData.phoneNumber"> </ion-input>
+              <ion-input inputmode="text" placeholder=" " [(ngModel)]="loginData.phoneNumber"> </ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
-        <ion-row class="width-80-percent center-text margin-top-10">
+        <!-- <ion-row class="width-80-percent center-text margin-top-10">
           <ion-button (click)="userSignup()" class="full-button" expand="full" color="primary">Send OTP</ion-button>
-        </ion-row>
+        </ion-row> -->
         <ion-row style="justify-content: center !important" class="width-80-percent margin-top-10">
           <p style="text-decoration: underline;" (click)="toggelLoginClicked()">Login</p>
         </ion-row>
@@ -89,11 +89,20 @@
       <div [hidden]="enterpassword">
         <ion-row class="width-80-percent text-left">
           <ion-col>
-            <ion-item>
+            <!-- <ion-item>
               <ion-label position="stacked" class="font-20 margin-bottom-10">Enter Password</ion-label>
               <ion-input type="password" placeholder=" " [(ngModel)]="loginData.password">
               </ion-input>
-            </ion-item>
+            </ion-item> -->
+
+            <ion-item>
+              <ion-label position="stacked" class="font-20 margin-bottom-10">Enter Password</ion-label>
+              <ion-input  [type]="passwordType" [(ngModel)]="loginData.password" clearOnEdit="false"></ion-input>
+              <!-- <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon> -->
+          </ion-item>
+
+
+
           </ion-col>
         </ion-row>
         <ion-row class="width-80-percent center-text margin-top-10">
@@ -101,7 +110,7 @@
         </ion-row>
         <ion-row style="justify-content: center !important" class="width-80-percent margin-top-10">
           <p (click)="editNumber()">
-              <ion-icon style="vertical-align:bottom;" name="arrow-round-back"></ion-icon> Edit mobile number</p>
+              <ion-icon style="vertical-align:bottom;" name="arrow-round-back"></ion-icon> Edit email</p>
         </ion-row>
       </div>
 
@@ -166,7 +175,7 @@
           </ion-col>
           <ion-col class="center-text">
               <p (click)="editresendNumber()">
-                  <ion-icon style="vertical-align: bottom;" name="arrow-round-back"></ion-icon> Edit mobile number</p>
+                  <ion-icon style="vertical-align: bottom;" name="arrow-round-back"></ion-icon> Edit email</p>
             </ion-col>
         </ion-row>
         <ion-row [hidden]="enterotp" class="width-80-percent center-text margin-top-10">
@@ -264,21 +273,73 @@
 
       <div [hidden]="newpassword">
 
+          <ion-row class="width-80-percent text-left margin-negative">
+              <ion-col>
+                <ion-item>
+                  <ion-label position="stacked" class="font-20 margin-bottom-10">Enter Your name<small>*</small></ion-label>
+                  <ion-input type="text" placeholder="" [(ngModel)]="loginData.name">
+                  </ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          <ion-row class="width-80-percent">
+              <div class="text-left">
+                <p class="font-14">Enter your email<small>*</small></p>
+              </div>
+            </ion-row>
+            <ion-row style="margin-top: -5%;" class="width-80-percent text-left">
+              <!-- <ion-col size="3">
+                <ion-item (click)="showCountryCodeModal()">
+                  <ion-input inputmode="text" [(ngModel)]="loginData.countryCode"> </ion-input>
+                  <ion-icon mode="md" class="txt-warm-grey" name="arrow-dropdown"></ion-icon>
+                </ion-item>
+              </ion-col> -->
+              <ion-col size="12">
+                <ion-item>
+                  <ion-input inputmode="text" placeholder=" " [(ngModel)]="loginData.phoneNumber"> </ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+
+
+
+
+
+
+
+
+
+  
+
         <ion-row class="width-80-percent text-left">
-          <ion-col>
-            <ion-item>
-              <ion-label position="stacked" class="font-20 margin-bottom-10">Enter Your Name</ion-label>
-              <ion-input type="text" placeholder="" [(ngModel)]="loginData.name">
-              </ion-input>
-            </ion-item>
-          </ion-col>
-        </ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label position="stacked" class="font-20 margin-bottom-10">Mobile</ion-label>
+                <ion-input type="text" placeholder="" [(ngModel)]="loginData.mobile">
+                </ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+        <ion-row class="width-80-percent text-left">
+            <ion-col>
+                <ion-item>
+                    <ion-label>Gender</ion-label>
+                    <ion-select [(ngModel)]="loginData.gender" interface="popover">
+                      <ion-select-option value="M">Male</ion-select-option>
+                      <ion-select-option value="F">Female</ion-select-option>
+                      <ion-select-option value="O">Other</ion-select-option>
+                   
+                    </ion-select>
+                  </ion-item>
+            </ion-col>
+          </ion-row>
 
 
         <ion-row class="width-80-percent text-left">
           <ion-col>
             <ion-item>
-              <ion-label position="stacked" class="font-20 margin-bottom-10">Enter New Password</ion-label>
+              <ion-label position="stacked" class="font-20 margin-bottom-10">Enter New Password<small>*</small></ion-label>
               <ion-input type="password" placeholder="" [(ngModel)]="loginData.password"
                 (ngModelChange)="validatePassword()">
               </ion-input>
@@ -288,7 +349,7 @@
         <ion-row class="width-80-percent text-left">
           <ion-col>
             <ion-item>
-              <ion-label position="stacked" class="font-20 margin-bottom-10">Confirm Password</ion-label>
+              <ion-label position="stacked" class="font-20 margin-bottom-10">Confirm Password<small>*</small></ion-label>
               <ion-input type="password" placeholder="" [(ngModel)]="loginData.passwordCheck"
                 (ngModelChange)="validatePassword()">
               </ion-input>
@@ -301,12 +362,12 @@
 
         <ion-row class="width-80-percent center-text margin-top-10">
           <ion-button class="full-button " expand="full" color="primary" [hidden]="loginData.action === 'resetPassword'"
-            [disabled]="!loginData.password || !loginData.passwordCheck || loginData.password.length < 4 || loginData.passwordCheck.length < 4 || passwordMismatch"
+            [disabled]="!loginData.password || !loginData.passwordCheck || loginData.password.length < 4 || !loginData.phoneNumber ||loginData.passwordCheck.length < 3 || passwordMismatch"
             (click)="registerUser()">Register</ion-button>
         </ion-row>
         <ion-row class="width-80-percent center-text margin-top-10" [hidden]="loginData.action !== 'resetPassword'">
           <ion-button class="full-button " expand="full" color="primary" (click)="resetPassword()"
-            [disabled]="!loginData.password || !loginData.passwordCheck || loginData.password.length < 4 || loginData.passwordCheck.length < 4 || passwordMismatch"
+            [disabled]="!loginData.password || !loginData.passwordCheck || loginData.password.length < 4 || !loginData.phoneNumber ||loginData.passwordCheck.length < 3 || passwordMismatch"
             (click)="registerUser()">Register</ion-button>
         </ion-row>
 
@@ -353,19 +414,19 @@
         </ion-row>
         <ion-row class="width-80-percent">
           <div class="text-left">
-            <p class="font-14 margin-top-0">Enter your phone number to reset password.</p>
+            <p class="font-14 margin-top-0">Enter your email to reset password.</p>
           </div>
         </ion-row>
-        <ion-row class="width-80-percent text-left">
-          <ion-col size="2">
+        <ion-row style="margin-top: -5%;" class="width-80-percent text-left">
+          <!-- <ion-col size="2">
             <ion-item>
               <ion-input disabled="true" inputmode="text" [(ngModel)]="loginData.countryCode"> </ion-input>
-              <!-- <ion-icon mode="md" class="txt-warm-grey" name="arrow-dropdown"></ion-icon> -->
-            </ion-item>
-          </ion-col>
-          <ion-col size="10">
+         <ion-icon mode="md" class="txt-warm-grey" name="arrow-dropdown"></ion-icon> -->
+            <!-- </ion-item>
+          </ion-col> --> 
+          <ion-col size="12">
             <ion-item>
-              <ion-input inputmode="tel" placeholder=" "
+              <ion-input inputmode="text" placeholder=" "
                 [(ngModel)]="loginData.phoneNumber"> </ion-input>
             </ion-item>
           </ion-col>

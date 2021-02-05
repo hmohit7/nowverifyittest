@@ -15,7 +15,7 @@ export class MainAppSetting {
     public ORG = ORG;
     public userId;
     public appFor = appFor;
-    public storag = new Storage({})
+    // public storage = new Storage({})
     public token;
     public platform: string = '';
 
@@ -33,7 +33,7 @@ export class MainAppSetting {
         // })
     }
 
-    getPlatform(){
+    getPlatform() {
         this.storageService.getDatafromIonicStorage('platform').then(data => {
             this.platform = data
         })
@@ -41,11 +41,16 @@ export class MainAppSetting {
 
     getHttpHeades() {
         const httpHeades = {
+            // withCredentials : true,
+            // Credentials:'include',
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',
-               
-            })
-           
+                'Access-Control-Allow-Credentials': 'true'
+
+            }),
+            // withCredentials:true,
+
+
         };
         return httpHeades;
     }
@@ -65,12 +70,16 @@ export class MainAppSetting {
     getHttpHeadesWithToken() {
         const httpHeadesWithToken = {
             headers: new HttpHeaders({
+                credentials: 'include',
+
                 'Content-Type': 'application/json',
                 'authorization': /**window.localStorage.getItem('token')*/ this.token,
-                
-                'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Credentials': 'true'
-            })
+                // 'Access-Control-Allow-Origin': '*',
+                // 'Access-Control-Allow-Credentials': 'true'
+            }),
+            withCredentials: true,
+
         };
         return httpHeadesWithToken;
     }
@@ -103,13 +112,13 @@ export class MainAppSetting {
                 }
             }
         } else if (this.ORG == "RM") {
-            window.localStorage.setItem('appSrc', 'rentals');
+            // window.localStorage.setItem('appSrc', 'rentals');
             this.storageService.storeDataToIonicStorage('appSrc', 'rentals');
 
             if (this.appFor == 'alpha') {
-                API = 'https://admin.nailabeauties.com';
+                API = 'http://work.nowverifyit.com';
             } else if (this.appFor == 'production') {
-                API = 'https://admin.nailabeauties.com'
+                API = 'http://work.nowverifyit.com'
             }
         } else if (this.ORG == "BM") {
             window.localStorage.setItem('appSrc', 'building-management');

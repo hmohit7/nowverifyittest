@@ -1,0 +1,33 @@
+img{
+  width:100%;
+  height:100%;
+}
+
+.myCard{
+  position:relative;
+  height: 165px;
+    width: 42vw !important;
+
+}
+
+.myOverlay{
+  width: 100%;
+  height: 45px;
+  position: absolute;
+  z-index: 99;
+  font-size: 12px;
+  bottom: 0px;
+  // opacity: 0.5;
+  // background: #000;
+  color: #fff;
+  background: linear-gradient(to bottom,transparent, black);
+
+
+}
+ion-col{
+  margin-left: -2vw;
+}
+
+.card-title{
+  margin-top: 2vw;
+}

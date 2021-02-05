@@ -20,24 +20,29 @@
     "@angular/platform-browser": "^7.2.2",
     "@angular/platform-browser-dynamic": "^7.2.2",
     "@angular/router": "^7.2.2",
+    "@ionic-native/barcode-scanner": "^5.30.0",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/device": "^5.17.1",
     "@ionic-native/file": "^5.8.0",
     "@ionic-native/file-path": "^5.19.1",
     "@ionic-native/file-transfer": "^5.8.0",
+    "@ionic-native/geolocation": "^5.30.0",
     "@ionic-native/http": "^5.17.1",
-    "@ionic-native/ionic-webview": "^5.13.0",
+    "@ionic-native/ionic-webview": "^5.30.0",
+    "@ionic-native/nfc": "^5.30.0",
     "@ionic-native/push": "^5.23.0",
+    "@ionic-native/qr-scanner": "^5.30.0",
+    "@ionic-native/screenshot": "^5.30.0",
     "@ionic-native/splash-screen": "^5.0.0",
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^4.1.0",
     "@ionic/storage": "^2.2.0",
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
+    "@techiediaries/ngx-qrcode": "^9.1.0",
     "com.razorpay.cordova": "1.4.10",
-    "cordova-android": "^8.1.0",
+    "compare-func": "^2.0.0",
     "cordova-browser": "^6.0.0",
-    "cordova-ios": "^5.1.1",
     "cordova-plugin-advanced-http": "^2.2.0",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-file": "6.0.1",
@@ -46,11 +51,11 @@
     "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-googlemaps": "^2.7.1",
     "cordova-plugin-ionic-keyboard": "^2.1.3",
-    "cordova-plugin-ionic-webview": "^4.1.1",
     "cordova-plugin-nativegeocoder": "^3.4.0",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "^1.3.3",
+    "cordova-plugin-wkwebview-cookie-sync": "^1.1.4",
     "cordova-res": "^0.8.1",
     "core-js": "^2.5.4",
     "ionic-angular": "^3.9.10",
@@ -58,18 +63,21 @@
     "ios": "0.0.1",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
+    "ng2-cookies": "^1.0.12",
     "ngx-avatar": "^3.5.0",
     "ngx-order-pipe": "^2.0.4",
+    "node-properties-parser": "0.0.2",
     "node-sass": "^4.13.1",
     "phonegap-plugin-multidex": "1.0.0",
     "rxjs": "~6.5.1",
     "rxjs-compat": "^6.5.5",
     "tslib": "^1.9.0",
+    "xml2js": "^0.4.23",
     "zone.js": "~0.8.29"
   },
   "devDependencies": {
     "@angular-devkit/architect": "~0.13.8",
-    "@angular-devkit/build-angular": "~0.13.8",
+    "@angular-devkit/build-angular": "^0.13.4",
     "@angular-devkit/core": "~7.3.8",
     "@angular-devkit/schematics": "~7.3.8",
     "@angular/cli": "~7.3.8",
@@ -77,10 +85,14 @@
     "@angular/compiler-cli": "~7.2.2",
     "@angular/language-service": "~7.2.2",
     "@ionic/angular-toolkit": "~1.5.1",
-    "@types/node": "~12.0.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~12.0.0",
     "codelyzer": "~4.5.0",
+    "cordova-android": "^8.1.0",
+    "cordova-ios": "^6.1.1",
+    "cordova-plugin-ionic-webview": "^5.0.0",
+    "cordova-plugin-wkwebview-inject-cookie": "git+https://github.com/lucky3491/cordova-plugin-wkwebview-inject-cookie.git",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
@@ -88,10 +100,11 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "phonegap-plugin-barcodescanner": "^8.1.0",
     "protractor": "~5.4.0",
     "ts-node": "~8.1.0",
     "tslint": "~5.16.0",
-    "typescript": "~3.1.6"
+    "typescript": "^3.2.4"
   },
   "description": "An Ionic project",
   "cordova": {
@@ -106,9 +119,6 @@
       "cordova-plugin-advanced-http": {
         "OKHTTP_VERSION": "3.10.0"
       },
-      "cordova-plugin-ionic-webview": {
-        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
-      },
       "cordova-plugin-filepath": {},
       "cordova-plugin-geolocation": {},
       "cordova-plugin-nativegeocoder": {
@@ -118,12 +128,17 @@
         "PLAY_SERVICES_VERSION": "15.0.1",
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
       },
-      "com.razorpay.cordova": {}
+      "com.razorpay.cordova": {},
+      "com.darktalker.cordova.screenshot": {},
+      "phonegap-plugin-barcodescanner": {},
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-wkwebview-cookie-sync": {},
+      "cordova-plugin-wkwebview-inject-cookie": {}
     },
     "platforms": [
       "android",
-      "ios",
-      "browser"
+      "browser",
+      "ios"
     ]
   }
 }

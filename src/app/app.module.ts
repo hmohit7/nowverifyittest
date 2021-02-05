@@ -30,7 +30,14 @@ import { OrderModule } from 'ngx-order-pipe'
 import { PictureComponent } from './common-components/picture/picture.component';
 import { FilePath } from '@ionic-native/file-path/ngx';
 import { ApprovalpopupComponent } from './Rentals Management/modals/approvalpopup/approvalpopup.component';
+import { NFC, Ndef } from '@ionic-native/nfc/ngx';
+import { QRScanner } from '@ionic-native/qr-scanner/ngx';
+import { Screenshot } from '@ionic-native/screenshot/ngx';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+
 // import { ApprovalpopupComponent } from '../../modals/approvalpopup/approvalpopup.component';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @NgModule({
   declarations: [
@@ -43,6 +50,8 @@ import { ApprovalpopupComponent } from './Rentals Management/modals/approvalpopu
   ],
   entryComponents: [OrgModalComponent, CountrycodemodalComponent, PictureComponent,ApprovalpopupComponent],
   imports: [
+    NgxQRCodeModule,
+
     FormsModule,
     BrowserModule,
     HttpClientModule,
@@ -66,12 +75,18 @@ import { ApprovalpopupComponent } from './Rentals Management/modals/approvalpopu
     })
   ],
   providers: [
+    QRScanner,
+    Screenshot,
+    Geolocation,
+    BarcodeScanner,
+    Ndef,
     StatusBar,
     SplashScreen,
     MainAppSetting,
     FileTransfer,
     FileTransferObject,
     HTTP,
+    NFC,
     StorageService,
     Push,
     Device,

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import * as jsonFile from '../conatants/organization.json';
 import { MainAppSetting } from '../conatants/MainAppSetting.js';
+import {  HttpHeaders } from '@angular/common/http';
 
 
 const appFor = jsonFile.connectTo;
@@ -76,16 +77,71 @@ export class LoginService {
 
       registerUser(data:any): Observable<any> {
         return this.http.post(
-          `${this.appSettings.getApi()}/api/v1/auth/`,data,this.appSettings.getHttpHeades()
+          `${this.appSettings.getApi()}/register?email=${data.email}&signup-as=${data.signupas}&fullname=${data.fullname}&mobile=${data.mobile}&password=${data.password}&repassword=${data.password_confirmation}&gender=${data.gender};`,data,this.appSettings.getHttpHeades()
         );
       }
 
-      registeredUser(data:any): Observable<any> {
-        return this.http.post(
-          `${this.appSettings.getApi()}/api/v1/auth/sign_in`,data,this.appSettings.getHttpHeades()
-        );
+    
+
+      // "fullname": this.loginData.name,
+      // "email": this.loginData.phoneNumber,
+      // "password": this.loginData.password,
+      // "password_confirmation": this.loginData.passwordCheck,
+      // "gender": this.loginData.gender  ,
+      // "signup-as":'user',
+      // "mobile": this.loginData.mobile
+      // registeredUser(data:any): Observable<any> {
+      //   return this.http.post(
+      //     `${this.appSettings.getApi()}/api/v1/auth/sign_in`,data,this.appSettings.getHttpHeades()
+      //   );
+      // }
+
+
+      // registeredUser(data:any): Observable<any> {
+      //   return this.http.post(
+      //     `${this.appSettings.getApi()}/api/v1/auth/sign_in`,data,this.appSettings.getHttpHeades()
+      //   );
+      // }
+
+
+      loginUserInfo(): Observable<any> {
+
+        return this.http.get(`${this.appSettings.getApi()}/login/userinfo`,
+          {
+            headers: new HttpHeaders({
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Credentials': 'true',
+              credentials: 'include',
+
+              
+            }),
+            
+            withCredentials:true,
+          }
+          );
       }
 
+
+      
+
+
+      registeredUser(id): Observable<any> {
+
+        return this.http.get(`${this.appSettings.getApi()}/login?email=${id.email}&password=${id.password}`,
+          {
+            headers: new HttpHeaders({
+              
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Credentials': 'true',
+              credentials: 'include',
+
+              
+            }),
+            withCredentials:true,
+
+          }
+          );
+      }
 
       resendOtp(data:any): Observable<any> {
         return this.http.post(
@@ -101,5 +157,12 @@ export class LoginService {
           `${this.appSettings.getApi()}/api/v1/user/reset_password`,data,this.appSettings.getHttpHeades()
         );
       }
+
+
+      // registerUser(data:any): Observable<any> {
+      //   return this.http.post(
+      //     `${this.appSettings.getApi()}/api/v1/auth/`,data,this.appSettings.getHttpHeades()
+      //   );
+      // }
       
 }

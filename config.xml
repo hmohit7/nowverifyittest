@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.nailabeauties.redifined" version="0.0.9" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Naila</name>
-    <description>Naila Beauty Redifined</description>
+<widget id="com.nowverifyit" version="0.1.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Nowverifyit</name>
+    <description>Empowering businesses, Empowering consumers.</description>
     <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
     <access origin="*" />
@@ -12,7 +12,7 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <preference name="ScrollEnabled" value="false" />
-    <preference name="android-targetSdkVersion" value="28" />
+    <preference name="android-targetSdkVersion" value="29" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="loadUrlTimeoutValue" value="7000000" />
@@ -25,6 +25,12 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyAH3tjUqRBphM-E6jLm0Va70Dr1uOoDNBA" />
+    <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyAH3tjUqRBphM-E6jLm0Va70Dr1uOoDNBA" />
+    <preference name="WKWebViewOnly" value="true" />
+    <feature name="CDVWKWebViewEngine">
+        <param name="ios-package" value="CDVWKWebViewEngine" />
+    </feature>
+    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
     <platform name="android">
         <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
             <application android:networkSecurityConfig="@xml/network_security_config" />
@@ -103,19 +109,26 @@
         <splash height="828" src="resources/ios/splash/Default-Landscape-1792h~iphone.png" width="1792" />
         <splash height="2436" src="resources/ios/splash/Default-2436h.png" width="1125" />
         <splash height="1125" src="resources/ios/splash/Default-Landscape-2436h.png" width="2436" />
+        <config-file parent="NSLocationWhenInUseUsageDescription" target="*-Info.plist">
+            <string>Location is stored at the time of purchase to ensure better service to our consumers. This is part of our anti-counterfeit algorithm. Our solution is compliant and secure to protect user personal data.</string>
+        </config-file>
+        <config-file parent="NSCameraUsageDescription" target="*-Info.plist">
+            <string>The camera is used to scan QR codes is used to authenticate your products.</string>
+        </config-file>
     </platform>
     <plugin name="cordova-plugin-whitelist" spec="1.3.3" />
     <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
     <plugin name="cordova-plugin-device" spec="2.0.2" />
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <plugin name="cordova-plugin-wkwebview-inject-cookie" spec="1.1.4" />
+    <plugin name="phonegap-plugin-barcodescanner" />
     <engine name="android" spec="^8.0.0" />
-    <allow-navigation href="http://localhost:3020" sessionid="54de23f4" />
-    <allow-navigation href="http://localhost:3021" sessionid="0199eecb" />
-    <allow-navigation href="http://localhost:3022" sessionid="f5ee772f" />
-    <allow-navigation href="http://localhost:3023" sessionid="77efcb7c" />
-    <allow-navigation href="http://localhost:3024" sessionid="c4b83130" />
-    <allow-navigation href="http://localhost:3025" sessionid="28396b8f" />
-    <allow-navigation href="http://localhost:3026" sessionid="8a351ec0" />
-    <allow-navigation href="http://localhost:8101" sessionid="29796033" />
+    <allow-navigation href="http://localhost:8100" sessionid="8f994a35" />
+    <allow-navigation href="http://localhost:8080" sessionid="592a1f11" />
+    <allow-navigation href="http://localhost:8081" sessionid="de7dd415" />
+    <allow-navigation href="http://localhost:8082" sessionid="59a6d658" />
+    <allow-navigation href="http://localhost:8083" sessionid="ae05d5f7" />
+    <allow-navigation href="http://localhost:3020" sessionid="ce28aa1e" />
+    <allow-navigation href="http://localhost:8101" sessionid="205197e8" />
 </widget>

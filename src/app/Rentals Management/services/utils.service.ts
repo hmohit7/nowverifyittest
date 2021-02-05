@@ -10,8 +10,16 @@ export class Utils {
     storage:any;
     cartdata:any
     bookingdata:any;
+    NFCsuccessmsg:any;
+    menuTitle
+    callgettagresult:any;
+    callrecordscanresult:any
     cartitem:any;
     userrole:any;
+    productId;
+    productCatalogInfo;
+    hidenfc
+    userType:any;
     LoadPage:EventEmitter<boolean> = new EventEmitter();
 
   constructor(
@@ -25,6 +33,7 @@ export class Utils {
   
 
   LoadPageOnrouteChange(){
+    console.log('ios working and verifyit')
     this.LoadPage.next(true)
   }
 

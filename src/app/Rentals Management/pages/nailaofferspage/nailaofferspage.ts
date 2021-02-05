@@ -34,11 +34,11 @@ export class NailaOffersPage {
 
 
   ngOnInit() {
-    this.nailaservice.listBanners().subscribe(data => {
+    this.nailaservice.listRelatedProducts('1').subscribe(data => {
     this.listbanner=data;
-    this.items=data
-      this.listbanner.forEach(element => {
-        element.name= element.title
+    this.items=this.listbanner.data
+      this.listbanner.data.forEach(element => {
+        element.name= element.product_name
       });
     console.log(this.listbanner);
     })
@@ -48,7 +48,7 @@ export class NailaOffersPage {
   }
   items
   setFilteredItems() {
-    this.items = this.listbanner;
+    this.items = this.listbanner.data;
     this.items = this.filterItems(this.searchTerm);
   }
 

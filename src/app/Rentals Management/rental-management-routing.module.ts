@@ -48,8 +48,22 @@ const routes: Routes = [
     { path: 'rentals-naila-beaut-booking-page', loadChildren: '../Rentals Management/pages/beauticianbooking/beauticianbooking.module#NailaBeauticianBookingPageModule' },
     
     { path: 'rentals-naila-beaut-attendance-page', loadChildren: '../Rentals Management/pages/nailabeauticianattendance/nailabeauticianattendance.module#NailabeauticianAttendanceModule' },
+    { path: 'verifyit-dashboard', loadChildren: '../Rentals Management/pages/verifyitdashboard/verifyitdashboard.module#VerifyitDashboardPageModule' },
+
+
+    { path: 'verifyit-product-info', loadChildren: '../Rentals Management/pages/verifyitProductinfo/verifyitProductinfo.module#VerifyitProductInfoPageModule' },
+
+    { path: 'verifyit-store-product-info', loadChildren: '../Rentals Management/pages/verifyitstoreproductinfo/verifyitstoreproductinfo.module#VerifyitStoreProductInfoPageModule' },
+
+
+    { path: 'verifyit-message', loadChildren: '../Rentals Management/pages/verifyitsuccessmessage/verifyitsuccessmessage.module#VerifyItSuccessMessageModule' },
+
+    { path: 'verifyit-account', loadChildren: '../Rentals Management/pages/verifyitaccountspage/verifyitaccountspage.module#VerifyitAccountsPageModule' },
     
-    
+
+    { path: 'verifyit-product-catalog-info', loadChildren: '../Rentals Management/pages/verifyitproductcataloginfo/verifyitproductcataloginfo.module#VerifyitProductCatalogInfoPageModule' },
+
+    { path: 'verifyit-product-catalog', loadChildren: '../Rentals Management/pages/verifyitproductcatalog/verifyitproductcatalog.module#VerifyitProductCatalogPageModule' },
     
     // { path: 'rentals-my-data-project-details', loadChildren: '../Rentals Management/mydata/project/project-details/project-details.module#ProjectDetailsPageModule' },
     // { path: 'rentals-my-data-project-details/:id', loadChildren: '../Rentals Management/mydata/project/project-details/project-details.module#ProjectDetailsPageModule' },

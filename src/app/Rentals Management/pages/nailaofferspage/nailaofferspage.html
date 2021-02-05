@@ -9,15 +9,15 @@
       </ion-button>
     </ion-buttons> -->
 
-    <ion-title>Offers</ion-title>
+    <ion-title>Product catalog</ion-title>
   </ion-toolbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content *ngIf="listbanner" padding>
 
-    <ion-searchbar placeholder="Browse offers" mode="ios"
+    <ion-searchbar placeholder="Browse products" mode="ios"
     [(ngModel)]="searchTerm" (ionChange)="setFilteredItems()"
   ></ion-searchbar>
   <ion-row class="center-text">
@@ -25,9 +25,9 @@
 
       <ion-card class="myCard">
         <img 
-          src={{item.image.url}} />
+          src={{item.img1}} />
         <div class="myOverlay">
-          <div class="card-title">{{item.name}}</div>
+          <div class="card-title">{{item.product_name}}</div>
         </div>
       </ion-card>
 

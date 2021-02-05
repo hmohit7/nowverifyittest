@@ -1,0 +1,90 @@
+<ion-header no-border>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <!-- <ion-buttons slot="end" expand="full" class="ion-button" (click)="openScanner()">
+        <ion-button style="color: black">
+            <img src="../../../../assets/icons.png" width="30px" height="30px"/>
+        </ion-button>
+      </ion-buttons> -->
+  
+      <ion-title>NOWVERIFYIT</ion-title>
+    </ion-toolbar>
+  
+  </ion-header>
+
+
+
+<ion-content>
+
+    <!-- <ion-row class="">
+        <div class="text-left">
+          <p class="font-18 margin-top-10">Product name</p>
+        </div>
+      </ion-row>
+      <ion-row style="margin-top: -5%;" class=" text-left">
+     
+        <ion-col size="12">
+          <ion-item>
+            <ion-input inputmode="text" placeholder=" "
+              [(ngModel)]="productdetail.name"> </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row class="">
+          <div class="text-left">
+            <p class="font-18 margin-top-10">Place</p>
+          </div>
+        </ion-row>
+        <ion-row style="margin-top: -5%;" class=" text-left">
+     
+          <ion-col size="12">
+            <ion-item>
+              <ion-input inputmode="text" placeholder=" "
+                [(ngModel)]="productdetail.place"> </ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row> -->
+
+        <ion-row class=" center-text margin-top-10">
+          <ion-col style="margin-top: 5vh;
+          margin-bottom: 5vh;" size="12">
+              <ion-list>
+                  <ion-item lines="none" >
+                    <ion-thumbnail slot="start">
+                      <ion-img src="assets/scanqrcode.png"></ion-img>
+                    </ion-thumbnail>
+                  </ion-item>
+                </ion-list>
+            <ion-button *ngIf="userType == 1"(click)="scanqrcode()" class="half-button" expand="full" color="primary">Scan QR code
+            </ion-button>
+            <ion-button *ngIf="userType == 2" routerLink="/verifyit-store-product-info" class="half-button" expand="full" color="primary">Generate QR code
+            </ion-button>
+
+          </ion-col>
+
+          <ion-col *ngIf="this.canNFC" style="margin-top: 5vh;
+          margin-bottom: 5vh;">
+              <ion-list>
+                  <ion-item lines="none" >
+                    <ion-thumbnail slot="start">
+                      <ion-img src="assets/nfcicon.jpg"></ion-img>
+                    </ion-thumbnail>
+                  </ion-item>
+                </ion-list>
+              <ion-button *ngIf="userType == 1" (click)="readTag()" class="half-button" expand="full" color="primary">Scan NFC
+              </ion-button>
+              <ion-button *ngIf="this.userType == 2" routerLink="/verifyit-store-product-info" class="half-button" expand="full" color="primary">Write NFC
+              </ion-button>
+            </ion-col>
+
+
+
+
+        
+          </ion-row>
+
+</ion-content>

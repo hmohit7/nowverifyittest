@@ -1,0 +1,76 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <!-- <ion-buttons slot="end" expand="full" class="ion-button" (click)="openScanner()">
+      <ion-button style="color: black">
+          <img src="../../../../assets/icons.png" width="30px" height="30px"/>
+      </ion-button>
+    </ion-buttons> -->
+
+    <ion-title>Store Product Information</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+<ion-content >
+
+  <ion-row class="margin-top-10" class="text-left">
+
+    <ion-col>
+      <ion-item lines="none">
+        <ion-label position="floating">Product Name</ion-label>
+        <ion-input inputmode="text" placeholder=" " [(ngModel)]="productdetail.name"> </ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row class=" text-left">
+
+    <ion-col>
+      <ion-item lines="none">
+        <ion-label position="floating">Place</ion-label>
+
+        <ion-input inputmode="text" placeholder=" " [(ngModel)]="productdetail.place"> </ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+
+
+
+  <ion-row>
+    <ion-col style="margin-top: 5vh;
+    margin-bottom: 5vh;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;">
+      <ion-button (click)="openGeneratedQRcodeModal('qr')" class="half-button" expand="full" color="primary">Generate QR code
+      </ion-button>
+
+    
+
+    </ion-col>
+
+    <ion-col style="    margin-top: 5vh;
+    margin-bottom: 5vh;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;">
+      <ion-button [disabled]="!disableButton" (click)="openGeneratedQRcodeModal('nfc')" class="half-button" expand="full" color="primary">Write NFC
+        </ion-button>
+
+    
+
+    </ion-col>
+
+
+  </ion-row>
+
+</ion-content>
+<ion-footer>
+  <!--ion-toolbar>
+    <p><b> NFC Status:</b>&nbsp;{{ statusMessage }}</p>
+  </ion-toolbar-->
+</ion-footer>

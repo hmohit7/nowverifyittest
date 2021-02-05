@@ -32,7 +32,18 @@ export class NailaService {
   }
 
 
+listBanners():Observable<any>{
+  return this.http.get(`${this.appSettings.getApi()}/products/getRelatedProductD`,{
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    //   Authorization: localStorage.getItem('token')
+    credentials: 'include',
 
+              
+  }),
+  withCredentials:true,
+  })
+}
 
   apartmentList() {
     return this.http.get(`${this.appSettings.getApi()}/api/v1/apartments/active`,
@@ -65,14 +76,7 @@ export class NailaService {
 
 
 
-  listBanners(){
-    return this.http.get(`${this.appSettings.getApi()}/api/v1/banners/active`,{
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      //   Authorization: localStorage.getItem('token')
-      })
-    })
-  }
+
 
 // 
 
@@ -191,4 +195,114 @@ updatepaymentStatus(paymentdata,data){
     })
   });
 }
+
+
+
+
+//nowverifyit api
+
+
+callGetTag(id){
+  // nfc/get
+
+
+  return this.http.get(`${this.appSettings.getApi()}/nfc/get/${id}/2`,{
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    // Authorization: localStorage.getItem('token')
+    credentials: 'include',
+    })
+  })
+}
+
+
+
+callRecordScan(data){
+  return this.http.get(`${this.appSettings.getApi()}/nfc/recordscan/${data.tagId}?location=${data.location}&lat=${data.lat}&long=${data.long}&pincode=${data.pincode}&city=${data.city}&state=${data.state}&country=${data.country}`,
+  {
+    headers: new HttpHeaders({
+      
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Credentials': 'true',
+      credentials: 'include',
+
+      
+    }),
+    withCredentials:true,
+
+  }
+  );
+}
+
+
+callPostBoughtIt(tagId): Observable<any> {
+
+
+  return this.http.post(`${this.appSettings.getApi()}/nfc/bought`, tagId,
+  {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      // Authorization: localStorage.getItem('token')
+    })
+  });
+
+}
+
+
+writeNFCQRcodedata(data):Observable<any>{
+
+  return this.http.post(`${this.appSettings.getApi()}/nfc/post/${data.name}/${data.place}`,
+  {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      // Authorization: localStorage.getItem('token')
+    })
+  });
+}
+
+
+genetateOTP(data):Observable<any>{
+
+  return this.http.get(`${this.appSettings.getApi()}/nfc/sendsms/${data}`,
+  {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      // Authorization: localStorage.getItem('token')
+      credentials: 'include',
+
+              
+    }),
+    withCredentials:true,
+  });
+}
+
+
+submitOTP(data):Observable<any>{
+
+  return this.http.get(`${this.appSettings.getApi()}/nfc/authPurchase/${data.tagId}/${data.otp}`,
+  {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      // Authorization: localStorage.getItem('token')
+      credentials: 'include',
+
+              
+    }),
+    withCredentials:true,
+  });
+}
+
+listRelatedProducts(data){
+  return this.http.get(`${this.appSettings.getApi()}/products/getRelatedProductDetails/${data}`,{
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    //   Authorization: localStorage.getItem('token')
+    credentials: 'include',
+
+              
+  }),
+  withCredentials:true,
+  })
+}
+
 }

@@ -79,5 +79,23 @@ ion-modal {
 }
 
 .login-page-padding{
-  margin-top: 10vh;
+  margin-top: 0vh;
+}
+
+
+.passwordIcon{
+  font-size: 1.2rem !important;
+  position: absolute;
+  margin-left: 31vw;
+  top: 12vw !important;
+  z-index: 99999;
+  display: inline-flex;
+}
+
+.margin-top-minus-10vh{
+  margin-top: -10vh !important;
+}
+small{
+  color: red;
+  font-size: 100% !important;
 }
