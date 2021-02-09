@@ -843,7 +843,7 @@ export class LoginPage implements OnInit {
       window.localStorage.setItem('name', data.data.name);
       window.localStorage.setItem('email', data.data.email);
       window.localStorage.setItem('mobile', data.data.mobile);
-
+      window.localStorage.setItem('token', data.data.token);
 
       if (window.localStorage.getItem('name')) {
 
@@ -857,9 +857,11 @@ export class LoginPage implements OnInit {
       if (data.description.length) {
         this.loginService.loginUserInfo().subscribe((data) => {
           // alert('helloooooo1')
-          // console.log(data)
+          console.log('fhgfhgfghfghfhgfhgfhg========================')
 
-          // alert('fhgfhgfghfghfhgfhgfhg')
+          console.log(data)
+
+          console.log('fhgfhgfghfghfhgfhgfhg========================')
           // this.alertService.presentAlert(" user info data", this.utils.userType=window.localStorage.getItem('userType'));
 
 
@@ -868,7 +870,9 @@ export class LoginPage implements OnInit {
 
         }, err => {
           // alert('helloooooo2')
+          console.log('errorrrrrr===========================>>>>>>>>>>>>>>>>>>>>',err)
           console.log(err)
+          console.log('errorrrrrr===========================>>>>>>>>>>>>>>>>>>>>',err)
 
           debugger
           // this.alertService.presentAlert(" userinfo data error", err.error.errors[0]);

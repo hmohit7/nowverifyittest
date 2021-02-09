@@ -73,7 +73,7 @@ export class MainAppSetting {
                 credentials: 'include',
 
                 'Content-Type': 'application/json',
-                'authorization': /**window.localStorage.getItem('token')*/ this.token,
+                'authorization': window.localStorage.getItem('token'),
                 'Access-Control-Allow-Credentials': 'true'
                 // 'Access-Control-Allow-Origin': '*',
                 // 'Access-Control-Allow-Credentials': 'true'

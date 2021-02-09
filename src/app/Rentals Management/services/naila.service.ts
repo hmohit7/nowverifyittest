@@ -197,8 +197,6 @@ updatepaymentStatus(paymentdata,data){
 }
 
 
-
-
 //nowverifyit api
 
 
@@ -208,8 +206,8 @@ callGetTag(id){
 
   return this.http.get(`${this.appSettings.getApi()}/nfc/get/${id}/2`,{
     headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-    // Authorization: localStorage.getItem('token')
+    'Content-Type': 'application/json',
+    Authorization: localStorage.getItem('token'),
     credentials: 'include',
     })
   })
@@ -224,6 +222,7 @@ callRecordScan(data){
       
       'Content-Type': 'application/json',
       'Access-Control-Allow-Credentials': 'true',
+      Authorization: localStorage.getItem('token'),
       credentials: 'include',
 
       
@@ -242,7 +241,7 @@ callPostBoughtIt(tagId): Observable<any> {
   {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      // Authorization: localStorage.getItem('token')
+      Authorization: localStorage.getItem('token'),
     })
   });
 
@@ -255,7 +254,7 @@ writeNFCQRcodedata(data):Observable<any>{
   {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      // Authorization: localStorage.getItem('token')
+      Authorization: localStorage.getItem('token'),
     })
   });
 }
@@ -267,7 +266,7 @@ genetateOTP(data):Observable<any>{
   {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      // Authorization: localStorage.getItem('token')
+      Authorization: localStorage.getItem('token'),
       credentials: 'include',
 
               
@@ -283,7 +282,7 @@ submitOTP(data):Observable<any>{
   {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      // Authorization: localStorage.getItem('token')
+      Authorization: localStorage.getItem('token'),
       credentials: 'include',
 
               
@@ -296,7 +295,7 @@ listRelatedProducts(data){
   return this.http.get(`${this.appSettings.getApi()}/products/getRelatedProductDetails/${data}`,{
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-    //   Authorization: localStorage.getItem('token')
+      Authorization: localStorage.getItem('token'),
     credentials: 'include',
 
               
